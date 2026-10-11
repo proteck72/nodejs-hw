@@ -24,10 +24,9 @@ export const startServer = async () => {
 
   app.use(notesRouter);
 
-  app.use(notFoundHandler);
-
-  // ⚠️ Middleware для обробки помилок celebrate має бути перед основним errorHandler
   app.use(errors());
+
+  app.use(notFoundHandler);
   app.use(errorHandler);
 
   app.listen(PORT, () => {

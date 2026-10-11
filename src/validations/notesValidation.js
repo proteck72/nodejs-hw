@@ -27,10 +27,8 @@ export const noteIdSchema = {
 export const createNoteSchema = {
   body: Joi.object({
     title: Joi.string().min(1).required(),
-    content: Joi.string().allow('').default(''),
-    tag: Joi.string()
-      .valid(...TAGS)
-      .default('Todo'),
+    content: Joi.string().allow(''),
+    tag: Joi.string().valid(...TAGS),
   }),
 };
 
@@ -42,5 +40,5 @@ export const updateNoteSchema = {
     title: Joi.string().min(1),
     content: Joi.string().allow(''),
     tag: Joi.string().valid(...TAGS),
-  }).min(1), // Тіло запиту не має бути порожнім
+  }).min(1),
 };
