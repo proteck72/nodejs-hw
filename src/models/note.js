@@ -17,7 +17,12 @@ const noteSchema = new Schema(
       type: String,
       enum: TAGS,
       default: 'Todo',
-      index: true, // 👈 Додано індекс згідно з ТЗ
+      index: true,
+    },
+    userId: {
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: 'user',
     },
   },
   {
